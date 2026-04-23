@@ -24,6 +24,8 @@ function Scene() {
     <>
       <color attach="background" args={["black"]} />
 
+      {/* We use transparent background for the ASCII CSS, but the WebGL scene MUST be black 
+          so the ASCII effect knows to render empty space as ' ' instead of '#' */}
       <ambientLight intensity={0.5} />
       <directionalLight position={[10, 10, 10]} intensity={1} />
       <pointLight position={[-10, -10, -10]} intensity={0.5} />
@@ -47,16 +49,16 @@ function Scene() {
         </Center>
       </group>
 
-      {/* AsciiRenderer replaces the WebGL output with an ASCII character grid */}
-      <AsciiRenderer fgColor="white" bgColor="black" />
+      {/* AsciiRenderer is transparent so the stars behind it can show through */}
+      <AsciiRenderer fgColor="white" bgColor="transparent" />
     </>
   );
 }
 
 export default function AsciiText() {
   return (
-    <div className="w-full h-screen ">
-      <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
+    <div className="w-full h-screen">
+      <Canvas camera={{ position: [0, 0, 10], fov: 55 }}>
         <Scene />
       </Canvas>
     </div>
