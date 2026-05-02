@@ -30,12 +30,12 @@ function Scene() {
       <directionalLight position={[10, 10, 10]} intensity={1} />
       <pointLight position={[-10, -10, -10]} intensity={0.5} />
 
-      <group ref={groupRef} position={[0, 3.5, 0]}>
+      <group ref={groupRef} position={[0, 0, 0]}>
         <Center>
           <Text3D
             font="https://unpkg.com/three@0.77.0/examples/fonts/helvetiker_regular.typeface.json"
-            size={2}
-            height={0.5}
+            size={3}
+            height={2}
             curveSegments={12}
             bevelEnabled
             bevelThickness={0.1}
@@ -50,15 +50,15 @@ function Scene() {
       </group>
 
       {/* AsciiRenderer is transparent so the stars behind it can show through */}
-      <AsciiRenderer fgColor="white" bgColor="transparent" />
+      <AsciiRenderer fgColor="#00ffff" bgColor="transparent" />
     </>
   );
 }
 
 export default function AsciiText() {
   return (
-    <div className="w-full h-screen">
-      <Canvas camera={{ position: [0, 0, 10], fov: 55 }}>
+    <div className="w-full h-full">
+      <Canvas camera={{ position: [0, 0, 30], fov: 70 }}>
         <Scene />
       </Canvas>
     </div>

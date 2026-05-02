@@ -79,14 +79,14 @@ function StarScene() {
       </group>
 
       {/* Background scene keeps the black background */}
-      <AsciiRenderer fgColor="gold" bgColor="black" />
+      <AsciiRenderer fgColor="#ff00ff" bgColor="transparent" />
     </>
   );
 }
 
 export default function AsciiStars() {
   return (
-    <div className="w-full h-screen">
+    <div className="w-full h-full">
       <Canvas camera={{ position: [0, 0, 12] }}>
         <StarScene />
       </Canvas>
